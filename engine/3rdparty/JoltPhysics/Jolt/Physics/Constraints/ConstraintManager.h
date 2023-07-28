@@ -37,7 +37,7 @@ public:
 	inline uint32			GetNumConstraints() const					{ return (uint32)mConstraints.size(); }
 
 	/// Determine the active constraints of a subset of the constraints
-	void					GetActiveConstraints(uint32 inStartConstraintIdx, uint32 inEndConstraintIdx, Constraint **outActiveConstraints, uint32 &outNumActiveConstraints) const;
+	void					GetActiveConstraints(uint32 inStartConstraintIdx, uint32 inEndConstraintIdx, const Constraint **outActiveConstraints, uint32 &outNumActiveConstraints) const;
 
 	/// Link bodies to form islands
 	static void				sBuildIslands(Constraint **inActiveConstraints, uint32 inNumActiveConstraints, IslandBuilder &ioBuilder, BodyManager &inBodyManager);

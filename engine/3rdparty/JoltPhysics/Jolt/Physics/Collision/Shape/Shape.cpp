@@ -208,7 +208,8 @@ Shape::ShapeResult Shape::sRestoreWithChildren(StreamIn &inStream, IDToShapeMap 
 			return sub_shape_result;
 		sub_shapes.push_back(sub_shape_result.Get());
 	}
-	result.Get()->RestoreSubShapeState(sub_shapes.data(), (uint)sub_shapes.size());
+	auto _res = result.Get();
+	_res->RestoreSubShapeState(sub_shapes.data(), (uint)sub_shapes.size());
 
 	// Read the materials
 	inStream.Read(len);
@@ -251,7 +252,8 @@ Shape::ShapeResult Shape::sRestoreWithChildren(StreamIn &inStream, IDToShapeMap 
 
 		materials.push_back(material);
 	}
-	result.Get()->RestoreMaterialState(materials.data(), (uint)materials.size());
+	_res = result.Get();
+	_res->RestoreMaterialState(materials.data(), (uint)materials.size());
 
 	return result;
 }

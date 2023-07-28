@@ -65,7 +65,7 @@ Constraints ConstraintManager::GetConstraints() const
 	return copy;
 }
 
-void ConstraintManager::GetActiveConstraints(uint32 inStartConstraintIdx, uint32 inEndConstraintIdx, Constraint **outActiveConstraints, uint32 &outNumActiveConstraints) const
+void ConstraintManager::GetActiveConstraints(uint32 inStartConstraintIdx, uint32 inEndConstraintIdx, const Constraint **outActiveConstraints, uint32 &outNumActiveConstraints) const
 {
 	JPH_PROFILE_FUNCTION();
 
@@ -74,7 +74,7 @@ void ConstraintManager::GetActiveConstraints(uint32 inStartConstraintIdx, uint32
 	uint32 num_active_constraints = 0;
 	for (uint32 constraint_idx = inStartConstraintIdx; constraint_idx < inEndConstraintIdx; ++constraint_idx)
 	{
-		Constraint *c = mConstraints[constraint_idx];
+		const Constraint *c = mConstraints[constraint_idx];
 		JPH_ASSERT(c->mConstraintIndex == constraint_idx);
 		if (c->IsActive())
 		{

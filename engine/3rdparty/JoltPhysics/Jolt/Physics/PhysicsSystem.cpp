@@ -654,7 +654,7 @@ void PhysicsSystem::JobDetermineActiveConstraints(PhysicsUpdateContext::Step *io
 		uint32 constraint_idx_end = min(num_constraints, constraint_idx + cDetermineActiveConstraintsBatchSize);
 
 		// Store the active constraints at the start of the step (bodies get activated during the step which in turn may activate constraints leading to an inconsistent shapshot)
-		mConstraintManager.GetActiveConstraints(constraint_idx, constraint_idx_end, active_constraints, num_active_constraints);
+		mConstraintManager.GetActiveConstraints(constraint_idx, constraint_idx_end, (const Constraint **)active_constraints, num_active_constraints);
 
 		// Copy the block of active constraints to the global list of active constraints
 		if (num_active_constraints > 0)
